@@ -1,0 +1,64 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #181929; /* <-- Solid dark background */
+  padding: 28px 0 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 24px #00000018; /* Optional: subtle shadow for separation */
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo {
+  color: #a78bfa;
+  font-weight: 900;
+  font-size: 2.45rem;
+  letter-spacing: 2px;
+}
+.portfolio {
+  color: #bbb;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.links {
+  display: flex;
+  gap: 38px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.links a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.03rem;
+  padding: 6px 18px;
+  border-radius: 20px;
+  transition: background 0.15s;
+}
+.links a:hover,
+.links .active {
+  background: #23243a;
+  color: #a78bfa;
+}
+.cta {
+  background: linear-gradient(92deg, #a78bfa 60%, #8b5cf6 100%);
+  color: #fff;
+  border-radius: 22px;
+  padding: 10px 28px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.07rem;
+  transition: background 0.18s;
+  box-shadow: 0 3px 16px #a78bfa1a;
+  margin-left: 22px;
+}
+.cta:hover {
+  background: linear-gradient(92deg, #8b5cf6 10%, #a78bfa 90%);
+}

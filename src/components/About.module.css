@@ -1,0 +1,21 @@
+.about {
+  margin: 64px 0 48px 0;
+  padding: 44px 34px;
+  border-radius: 22px;
+  background: #16172b;
+  box-shadow: 0 4px 32px #12121a28;
+}
+.about h2 {
+  font-size: 2.2rem;
+  color: #a78bfa;
+  margin-bottom: 18px;
+}
+.content {
+  font-size: 1.13rem;
+  color: #e0e0e0;
+}
+ul {
+  margin-top: 18px;
+  padding-left: 16px;
+  line-height: 1.8;
+}

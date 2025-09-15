@@ -1,0 +1,62 @@
+.automations {
+  padding: 40px 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2.2rem;
+  color: #b49aff;
+  margin-bottom: 24px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
+}
+
+.card {
+  background: #181929;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #00000011;
+  padding: 24px 28px;
+  min-width: 280px;
+  max-width: 350px;
+  flex: 1;
+  color: #f1edfd;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.16s;
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 6px 20px #a78bfa33;
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #a78bfa;
+}
+
+.desc {
+  font-size: 1rem;
+  color: #d1c6f3;
+}
+
+.meta {
+  font-size: 0.95rem;
+  color: #c2b8e8;
+  margin-top: 8px;
+  display: flex;
+  gap: 18px;
+}
+
+.loading {
+  color: #aaa;
+  margin-top: 16px;
+}
