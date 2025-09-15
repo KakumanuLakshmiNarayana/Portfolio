@@ -1,0 +1,59 @@
+.contact {
+  margin: 64px 0 48px 0;
+  padding: 44px 34px;
+  border-radius: 22px;
+  background: #16172b;
+  box-shadow: 0 4px 32px #12121a28;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+h2 {
+  font-size: 2.2rem;
+  color: #a78bfa;
+  margin-bottom: 18px;
+}
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+.emailButton, .ghButton {
+  padding: 10px 28px;
+  border-radius: 22px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.07rem;
+  display: inline-block;
+}
+.emailButton {
+  background: #8b5cf6;
+  color: #fff;
+  transition: background 0.15s;
+}
+.emailButton:hover {
+  background: #a78bfa;
+}
+.ghButton {
+  background: #23243a;
+  color: #fff;
+  border: 1.5px solid #444575;
+  transition: background 0.15s;
+}
+.ghButton:hover {
+  background: #2d2e4a;
+}
+.socials {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #b9b8d3;
+}
+.socials a {
+  color: #a78bfa;
+  margin-right: 16px;
+  text-decoration: none;
+}
+.socials a:hover {
+  text-decoration: underline;
+}

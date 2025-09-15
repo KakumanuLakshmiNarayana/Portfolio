@@ -1,0 +1,14 @@
+.app {
+  background: #0f1016;
+  color: #fff;
+  min-height: 100vh;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+main {
+  max-width: 1100px;
+  margin: 10px;
+  padding: 0 24px;
+}
+section {
+  scroll-margin-top: 100px; /* or the height of your navbar */
+}
