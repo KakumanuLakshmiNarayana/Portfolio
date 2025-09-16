@@ -7,7 +7,7 @@ export default function About() {
       <div className={styles.content}>
         <div>
           <p>
-            I am a passionate developer focused on building scalable web applications and workflow automation solutions. I enjoy working with modern web technologies and love to solve real-world problems with code.
+            I am a passionate Vibe Code developer focused on building scalable web applications and workflow automation solutions. I enjoy working with modern web technologies and love to solve real-world problems with Vibe coding and No Code Automations.
           </p>
           <ul>
             <li>🛠️ TypeScript, React, Node.js</li>
