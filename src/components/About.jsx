@@ -10,11 +10,11 @@ export default function About() {
             I am a passionate developer focused on building scalable web applications and workflow automation solutions. I enjoy working with modern web technologies and love to solve real-world problems with code.
           </p>
           <ul>
-            <li>🛠️ JavaScript, TypeScript, React, Node.js</li>
+            <li>🛠️ TypeScript, React, Node.js</li>
             <li>🗄️ Express, MongoDB, SQL</li>
             <li>🔄 Git, CI/CD, Automation</li>
-            <li>🧰 Python, Shell Scripting, REST APIs</li>
-            <li>🌍 Based in India</li>
+            <li>🧰 Python, Shell Scripting, REST APIs, Vibe Coding, N8N Automation</li>
+           
           </ul>
         </div>
       </div>
