@@ -15,7 +15,7 @@ export default function Hero() {
           <Typewriter text={"Lakshmi Narayana Kakumanu"} speed={65} />
         </span>
       </h1>
-      <h2 className={styles.role}>Vibe Coder, Automation Builder,Python Developer,AI Consultant,</h2>
+      <h2 className={styles.role}>Vibe Coder, Automation Builder,Python Developer,AI Consultant.</h2>
       <p className={styles.desc}>
         Building scalable web applications and workflow automation solutions
       </p>
