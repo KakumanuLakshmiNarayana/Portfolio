@@ -13,7 +13,7 @@ export default function About() {
             <li>🛠️ JavaScript, TypeScript, React, Node.js</li>
             <li>🗄️ Express, MongoDB, SQL</li>
             <li>🔄 Git, CI/CD, Automation</li>
-            <li>🧰 Python, Shell Scripting, REST APIs</li>
+            <li>🧰 Python, Shell Scripting, REST APIs, Vibe Coding, N8N Automations</li>
             
           </ul>
         </div>
