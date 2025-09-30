@@ -21,10 +21,33 @@
   padding-right: 32px;
 }
 
+@media (max-width: 900px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 700px) {
   .container {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    max-width: 100%;
+  }
+}
+
+/* Add a utility responsive grid (for cards, projects, etc) */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 600px) {
+  .responsive-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
@@ -51,27 +74,54 @@ body {
 
 #root {
   min-height: 100vh;
-  /* No max-width or padding here now, handled by .container */
 }
 
-* {
-  box-sizing: border-box;
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
+
+/* Make headings responsive */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin: 0.4em 0;
+}
+h2 {
+  font-size: 2em;
+  margin: 0.3em 0;
+}
+h3 {
+  font-size: 1.4em;
+  margin: 0.2em 0;
+}
+@media (max-width: 700px) {
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.4em;
+  }
+  h3 {
+    font-size: 1.1em;
+  }
 }
 
+/* Make buttons more touch friendly */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: .6em 1.2em;
+  padding: .8em 1.4em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  min-width: 44px; /* touch target */
+  min-height: 44px; /* touch target */
 }
 button:hover {
   border-color: #646cff;
@@ -79,6 +129,26 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Utility: Responsive flex for nav or section layouts */
+.flex-row {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .flex-row {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+}
+
+/* Remove outline for button clicks on mobile, but keep focus for accessibility */
+button:active {
+  outline: none;
 }
 
 @media (prefers-color-scheme: light) {
@@ -91,5 +161,22 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+/* Ensure universal box-sizing for layout consistency */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Optional: Responsive padding for sections */
+section {
+  padding: 32px 0;
+}
+@media (max-width: 600px) {
+  section {
+    padding: 16px 0;
   }
 }
