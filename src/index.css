@@ -7,11 +7,14 @@
   --color-bg-secondary: #181929;
   --color-bg-tertiary: #23243a;
   --color-bg-elevated: #2d2e4a;
+  --color-bg-button: #1a1a1a;
+  --color-bg-button-hover: #27296d;
   
   --color-text-primary: #ffffff;
   --color-text-secondary: #d1d5db;
   --color-text-muted: #b9b8d3;
   --color-text-link: #646cff;
+  --color-text-light: rgba(255, 255, 255, 0.87);
   
   --color-accent-primary: #a78bfa;
   --color-accent-secondary: #8b5cf6;
@@ -20,6 +23,8 @@
   --color-border: #444575;
   --color-shadow-sm: rgba(0, 0, 0, 0.1);
   --color-shadow-md: rgba(0, 0, 0, 0.18);
+  --color-shadow-button: rgba(0, 234, 255, 0.13);
+  --color-shadow-button-hover: rgba(0, 234, 255, 0.27);
   
   /* Spacing */
   --spacing-xs: 8px;
@@ -60,8 +65,8 @@
   font-weight: 400;
   
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-text-light);
+  background-color: var(--color-bg-secondary);
   
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -218,18 +223,18 @@ button, .primary, .secondary {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--color-bg-button);
   cursor: pointer;
   transition: border-color var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
   min-width: 44px;
   min-height: 44px;
-  box-shadow: 0 2px 10px rgba(0, 234, 255, 0.13);
+  box-shadow: 0 2px 10px var(--color-shadow-button);
 }
 
 button:hover, .primary:hover, .secondary:hover {
   border-color: var(--color-text-link);
-  background: #27296d;
-  box-shadow: 0 6px 18px rgba(0, 234, 255, 0.27);
+  background: var(--color-bg-button-hover);
+  box-shadow: 0 6px 18px var(--color-shadow-button-hover);
 }
 
 /* Remove outline for button clicks on mobile, but keep focus for accessibility */
