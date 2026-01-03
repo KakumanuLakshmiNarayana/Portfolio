@@ -1,31 +1,42 @@
+/* ============================================
+   Desktop Navbar Styles
+   ============================================ */
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #181929; /* <-- Solid dark background */
+  background: rgba(24, 25, 41, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 28px 0 10px 0;
   position: sticky;
   top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 24px #00000018; /* Optional: subtle shadow for separation */
+  z-index: var(--z-navbar);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.1);
 }
+
 .brand {
   display: flex;
   align-items: center;
   gap: 10px;
+  z-index: calc(var(--z-navbar) + 1);
 }
+
 .logo {
-  color: #a78bfa;
+  color: var(--color-accent-primary);
   font-weight: 900;
   font-size: 2.45rem;
   letter-spacing: 2px;
 }
+
 .portfolio {
   color: #bbb;
   font-size: 1.8rem;
   font-weight: 500;
   letter-spacing: 1px;
 }
+
 .links {
   display: flex;
   gap: 38px;
@@ -33,32 +44,222 @@
   margin: 0;
   padding: 0;
 }
+
 .links a {
-  color: #d1d5db;
+  color: var(--color-text-secondary);
   text-decoration: none;
   font-weight: 600;
   font-size: 1.03rem;
   padding: 6px 18px;
-  border-radius: 20px;
-  transition: background 0.15s;
+  border-radius: var(--radius-lg);
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
+
 .links a:hover,
 .links .active {
-  background: #23243a;
-  color: #a78bfa;
+  background: var(--color-bg-tertiary);
+  color: var(--color-accent-primary);
 }
+
 .cta {
-  background: linear-gradient(92deg, #a78bfa 60%, #8b5cf6 100%);
-  color: #fff;
-  border-radius: 22px;
+  background: linear-gradient(92deg, var(--color-accent-primary) 60%, var(--color-accent-secondary) 100%);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-lg);
   padding: 10px 28px;
   font-weight: 600;
   text-decoration: none;
   font-size: 1.07rem;
-  transition: background 0.18s;
-  box-shadow: 0 3px 16px #a78bfa1a;
+  transition: background var(--transition-base), transform var(--transition-fast);
+  box-shadow: 0 3px 16px rgba(167, 139, 250, 0.1);
   margin-left: 22px;
 }
+
 .cta:hover {
-  background: linear-gradient(92deg, #8b5cf6 10%, #a78bfa 90%);
+  background: linear-gradient(92deg, var(--color-accent-secondary) 10%, var(--color-accent-primary) 90%);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   Hamburger Menu (Mobile Only)
+   ============================================ */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: calc(var(--z-navbar) + 1);
+  position: relative;
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-accent-primary);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+  transform-origin: center;
+}
+
+/* Animated hamburger to X */
+.hamburger.open .hamburgerLine:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.open .hamburgerLine:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.hamburger.open .hamburgerLine:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ============================================
+   Mobile Menu Drawer
+   ============================================ */
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(300px, 75vw);
+  height: 100vh;
+  background: var(--color-bg-secondary);
+  transform: translateX(100%);
+  transition: transform var(--transition-slow);
+  z-index: var(--z-dropdown);
+  padding-top: 80px;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+.mobileMenu.open {
+  transform: translateX(0);
+}
+
+.mobileLinks {
+  list-style: none;
+  margin: 0;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.mobileLinks a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast), color var(--transition-fast);
+  display: block;
+}
+
+.mobileLinks a:hover,
+.mobileLinks .active {
+  background: var(--color-bg-tertiary);
+  color: var(--color-accent-primary);
+}
+
+.mobileCta {
+  background: linear-gradient(92deg, var(--color-accent-primary) 60%, var(--color-accent-secondary) 100%);
+  color: var(--color-text-primary) !important;
+  margin-top: var(--spacing-md);
+  text-align: center;
+  box-shadow: 0 3px 16px rgba(167, 139, 250, 0.1);
+}
+
+.mobileCta:hover {
+  background: linear-gradient(92deg, var(--color-accent-secondary) 10%, var(--color-accent-primary) 90%) !important;
+}
+
+/* ============================================
+   Backdrop (Mobile Menu)
+   ============================================ */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-backdrop);
+  z-index: calc(var(--z-navbar) + 50);
+  animation: fadeIn var(--transition-base);
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   Responsive Breakpoints
+   ============================================ */
+
+/* Show desktop nav on large screens */
+.desktopOnly {
+  display: flex;
+}
+
+/* Hide mobile menu elements on desktop */
+@media (min-width: 861px) {
+  .hamburger,
+  .mobileMenu,
+  .backdrop {
+    display: none !important;
+  }
+}
+
+/* Mobile styles - below 860px */
+@media (max-width: 860px) {
+  .navbar {
+    padding: 20px 0;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .portfolio {
+    font-size: 1.5rem;
+  }
+
+  /* Hide desktop nav elements */
+  .desktopOnly {
+    display: none !important;
+  }
+
+  /* Show hamburger on mobile */
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+  .logo {
+    font-size: 1.75rem;
+  }
+
+  .portfolio {
+    font-size: 1.3rem;
+  }
+
+  .mobileMenu {
+    width: 85vw;
+  }
 }
