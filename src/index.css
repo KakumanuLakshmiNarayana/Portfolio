@@ -21,6 +21,7 @@
   --color-accent-tertiary: #7c3aed;
   
   --color-border: #444575;
+  --color-backdrop: rgba(0, 0, 0, 0.6);
   --color-shadow-sm: rgba(0, 0, 0, 0.1);
   --color-shadow-md: rgba(0, 0, 0, 0.18);
   --color-shadow-button: rgba(0, 234, 255, 0.13);
