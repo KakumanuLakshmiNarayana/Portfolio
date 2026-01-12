@@ -40,6 +40,10 @@
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   
+  /* Background Effects */
+  --bg-gradient-teal: radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.03) 0%, transparent 50%);
+  --bg-gradient-blue: radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+  
   /* Border Radius */
   --radius-sm: 6px;
   --radius-md: 8px;
@@ -267,9 +271,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+  background-image: var(--bg-gradient-teal), var(--bg-gradient-blue);
   pointer-events: none;
   z-index: -1;
 }
