@@ -1,8 +1,9 @@
 .footer {
   text-align: center;
-  color: #b9b8d3;
-  padding: 34px 10px 24px 10px;
-  margin-top: 48px;
-  font-size: 1.08rem;
+  color: var(--color-gray-500);
+  padding: var(--space-4) var(--space-2);
+  margin-top: var(--space-8);
+  font-size: 0.9375rem;
   background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
