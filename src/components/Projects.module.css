@@ -1,59 +1,93 @@
 .projects {
-  margin: 64px 0 48px 0;
+  margin: var(--space-8) 0;
   scroll-margin-top: 90px;
 }
 
 h2 {
-  font-size: 2.1rem;
-  color: #a78bfa;
-  margin-bottom: 22px;
+  font-size: 2.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--color-gray-50);
+  margin-bottom: var(--space-4);
   scroll-margin-top: 90px;
+}
+
+@media (max-width: 700px) {
+  h2 {
+    font-size: 1.75rem;
+  }
 }
 
 .list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 36px;
+  gap: var(--space-3);
 }
 
 .card {
-  background: #191a2e;
-  border-radius: 18px;
-  padding: 30px 26px;
-  box-shadow: 0 2px 12px #160f2a28;
-  color: #e2e2f5;
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-md);
+  color: var(--color-gray-100);
   text-decoration: none;
-  transition: transform 0.18s, box-shadow 0.18s, border 0.18s;
-  border: 2px solid #3a395a;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent-teal) 0%, var(--color-accent-blue) 100%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-7px) scale(1.03);
-  box-shadow: 0 6px 32px #a78bfa44;
-  border: 2px solid #a78bfa;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .title {
-  font-size: 1.23rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 9px;
-  color: #a78bfa;
+  margin-bottom: var(--space-2);
+  color: var(--color-gray-50);
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
+
 .desc {
-  font-size: 1.01rem;
-  color: #c6c6e9;
-  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  color: var(--color-gray-400);
+  margin-bottom: var(--space-3);
+  line-height: 1.6;
+  flex-grow: 1;
 }
+
 .meta {
   display: flex;
-  gap: 16px;
-  font-size: 0.98rem;
-  color: #b9b8d3;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-gray-500);
   margin-top: auto;
+  padding-top: var(--space-2);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
+
 .loading {
-  color: #a78bfa;
-  font-size: 1.1rem;
+  color: var(--color-accent-teal);
+  font-size: 1rem;
 }

@@ -11,6 +11,7 @@ const SECTIONS = [
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   // Update active nav link as user scrolls (only on / route)
@@ -34,6 +35,7 @@ export default function Navbar() {
 
   // Smooth scroll for anchor links (only on / route)
   const handleNavClick = (id) => (e) => {
+    setMobileMenuOpen(false); // Close mobile menu on click
     if (location.pathname !== "/") {
       // If not on home, go to home with anchor
       e.preventDefault();
@@ -50,6 +52,7 @@ export default function Navbar() {
 
   // Smooth scroll for CTA button
   const handleCtaClick = (e) => {
+    setMobileMenuOpen(false); // Close mobile menu on click
     if (location.pathname !== "/") {
       e.preventDefault();
       window.location.href = "/#contact";
@@ -69,7 +72,18 @@ export default function Navbar() {
         <span className={styles.logo}>KLN</span>
         <span className={styles.portfolio}>Portfolio</span>
       </div>
-      <ul className={styles.links}>
+      
+      {/* Mobile menu button */}
+      <button 
+        className={styles.mobileMenuButton} 
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        aria-label="Toggle menu"
+      >
+        <span className={`${styles.hamburger} ${mobileMenuOpen ? styles.open : ''}`}></span>
+      </button>
+
+      {/* Navigation links */}
+      <ul className={`${styles.links} ${mobileMenuOpen ? styles.mobileOpen : ''}`}>
         {SECTIONS.map(({ id, label }) => (
           <li key={id}>
             <a
