@@ -6,6 +6,21 @@
   backdrop-filter: blur(8px);
   box-shadow: var(--shadow-lg);
   border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative corner element */
+.decorativeCorner {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  border-radius: 50%;
+  filter: blur(30px);
+  pointer-events: none;
 }
 
 .about h2 {
@@ -25,6 +40,69 @@
   font-size: 1.0625rem;
   color: var(--color-gray-300);
   line-height: 1.7;
+}
+
+/* Skills grid */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 700px) {
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skillCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+.skillCard:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(20, 184, 166, 0.3);
+  transform: translateX(4px);
+}
+
+.skillIcon {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.skillInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skillCategory {
+  font-size: 0.75rem;
+  color: var(--color-accent-teal);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.skillName {
+  font-size: 0.9375rem;
+  color: var(--color-gray-300);
+  line-height: 1.4;
 }
 
 ul {
