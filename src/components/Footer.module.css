@@ -1,8 +1,15 @@
 .footer {
   text-align: center;
-  color: #b9b8d3;
-  padding: 34px 10px 24px 10px;
-  margin-top: 48px;
-  font-size: 1.08rem;
+  color: var(--color-text-muted);
+  padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+  font-size: var(--text-base);
   background: transparent;
+  border-top: 1px solid rgba(139, 92, 246, 0.1);
+  font-family: var(--font-body);
+}
+
+.footer p {
+  margin: 0;
+  line-height: 1.6;
 }
