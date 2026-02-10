@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { navbarVariant } from "../utils/animations";
+import useReducedMotion from "../hooks/useReducedMotion";
 import styles from "./Navbar.module.css";
 
 const SECTIONS = [
@@ -11,7 +14,9 @@ const SECTIONS = [
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const prefersReducedMotion = useReducedMotion();
 
   // Update active nav link as user scrolls (only on / route)
   useEffect(() => {
@@ -26,16 +31,17 @@ export default function Navbar() {
         }
       }
       setActive(current);
+      
+      // Add blur effect on scroll
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-    // Only run on homepage
   }, [location.pathname]);
 
   // Smooth scroll for anchor links (only on / route)
   const handleNavClick = (id) => (e) => {
     if (location.pathname !== "/") {
-      // If not on home, go to home with anchor
       e.preventDefault();
       window.location.href = `/#${id}`;
       return;
@@ -43,7 +49,7 @@ export default function Navbar() {
     e.preventDefault();
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      el.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: "start" });
       setActive(id);
     }
   };
@@ -58,13 +64,13 @@ export default function Navbar() {
     e.preventDefault();
     const el = document.getElementById("contact");
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      el.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: "start" });
       setActive("contact");
     }
   };
 
-  return (
-    <nav className={styles.navbar}>
+  const NavContent = () => (
+    <>
       <div className={styles.brand}>
         <span className={styles.logo}>KLN</span>
         <span className={styles.portfolio}>Portfolio</span>
@@ -81,11 +87,30 @@ export default function Navbar() {
             </a>
           </li>
         ))}
-        
       </ul>
       <a href="#contact" className={styles.cta} onClick={handleCtaClick}>
         Get In Touch
       </a>
-    </nav>
+    </>
+  );
+
+  // Use motion.nav if animations are enabled, otherwise regular nav
+  if (prefersReducedMotion) {
+    return (
+      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+        <NavContent />
+      </nav>
+    );
+  }
+
+  return (
+    <motion.nav 
+      className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}
+      initial="hidden"
+      animate="visible"
+      variants={navbarVariant}
+    >
+      <NavContent />
+    </motion.nav>
   );
 }
