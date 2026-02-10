@@ -7,6 +7,7 @@ import useReducedMotion from '../hooks/useReducedMotion';
 import styles from "./Projects.module.css";
 
 const GITHUB_USERNAME = "KakumanuLakshmiNarayana";
+const NO_DESCRIPTION_TEXT = "No description available";
 
 export default function Projects() {
   const [repos, setRepos] = useState([]);
@@ -35,6 +36,7 @@ export default function Projects() {
       id="projects" 
       className={styles.projects}
       variants={fadeInUp}
+      as="section"
     >
       <motion.h2
         initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
@@ -81,7 +83,7 @@ export default function Projects() {
             >
               <div className={styles.cardGlow}></div>
               <div className={styles.title}>{repo.name}</div>
-              <p className={styles.desc}>{repo.description || "No description available"}</p>
+              <p className={styles.desc}>{repo.description || NO_DESCRIPTION_TEXT}</p>
               <div className={styles.meta}>
                 {repo.language && (
                   <span className={styles.language}>

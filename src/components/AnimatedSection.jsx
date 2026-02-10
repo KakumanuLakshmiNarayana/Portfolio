@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import useReducedMotion from '../hooks/useReducedMotion';
@@ -12,7 +13,8 @@ export default function AnimatedSection({
   variants, 
   className = '',
   threshold = 0.1,
-  triggerOnce = true 
+  triggerOnce = true,
+  as = 'div'
 }) {
   const prefersReducedMotion = useReducedMotion();
   const [ref, inView] = useInView({
@@ -20,13 +22,16 @@ export default function AnimatedSection({
     triggerOnce
   });
 
+  const Component = motion[as] || motion.div;
+
   // If user prefers reduced motion, don't animate
   if (prefersReducedMotion) {
-    return <div className={className}>{children}</div>;
+    const PlainComponent = as;
+    return <PlainComponent className={className}>{children}</PlainComponent>;
   }
 
   return (
-    <motion.div
+    <Component
       ref={ref}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
@@ -34,6 +39,16 @@ export default function AnimatedSection({
       className={className}
     >
       {children}
-    </motion.div>
+    </Component>
   );
 }
+
+AnimatedSection.propTypes = {
+  children: PropTypes.node.isRequired,
+  variants: PropTypes.object.isRequired,
+  className: PropTypes.string,
+  threshold: PropTypes.number,
+  triggerOnce: PropTypes.bool,
+  as: PropTypes.string
+};
+

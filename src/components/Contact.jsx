@@ -14,6 +14,7 @@ export default function Contact() {
       id="contact" 
       className={styles.contact}
       variants={fadeInUp}
+      as="section"
     >
       <motion.h2
         initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}

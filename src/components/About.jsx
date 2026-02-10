@@ -21,6 +21,7 @@ export default function About() {
       id="about" 
       className={styles.about}
       variants={fadeInUp}
+      as="section"
     >
       <motion.h2
         initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
