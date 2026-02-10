@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
-import Particles from 'react-particles';
-import { loadFull } from 'tsparticles';
+import Particles from '@tsparticles/react';
+import { loadSlim } from '@tsparticles/slim';
 import useReducedMotion from '../hooks/useReducedMotion';
 
 /**
@@ -11,7 +11,7 @@ export default function ParticleBackground() {
   const prefersReducedMotion = useReducedMotion();
 
   const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine);
+    await loadSlim(engine);
   }, []);
 
   // Don't render particles if user prefers reduced motion
@@ -91,8 +91,10 @@ export default function ParticleBackground() {
             },
             attract: {
               enable: true,
-              rotateX: 600,
-              rotateY: 1200
+              rotate: {
+                x: 600,
+                y: 1200
+              }
             }
           }
         },
@@ -107,7 +109,9 @@ export default function ParticleBackground() {
               enable: true,
               mode: 'push'
             },
-            resize: true
+            resize: {
+              enable: true
+            }
           },
           modes: {
             grab: {
