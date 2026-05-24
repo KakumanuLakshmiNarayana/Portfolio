@@ -61,10 +61,10 @@ export default function Contact() {
             <div className="space-y-4">
               <a
                 href="mailto:avinari32@gmail.com"
-                className="flex items-center gap-4 p-4 bg-overlay border border-divide rounded-xl hover:border-accent/30 transition-colors group"
+                className="flex items-center gap-4 p-4 bg-background border border-divide rounded-xl hover:border-accent/40 transition-colors group"
               >
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center"
-                  style={{ background: 'rgba(59,130,246,0.12)' }}>
+                  style={{ background: 'rgba(217,119,6,0.1)' }}>
                   <Mail size={18} className="text-accent" />
                 </div>
                 <div>
@@ -79,10 +79,10 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/lakshminarayanakakumanu/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-overlay border border-divide rounded-xl hover:border-accent/30 transition-colors group"
+                className="flex items-center gap-4 p-4 bg-background border border-divide rounded-xl hover:border-accent/40 transition-colors group"
               >
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center"
-                  style={{ background: 'rgba(59,130,246,0.12)' }}>
+                  style={{ background: 'rgba(217,119,6,0.1)' }}>
                   <LinkedinIcon size={18} />
                 </div>
                 <div>
@@ -96,11 +96,11 @@ export default function Contact() {
           </div>
 
           {/* Right: Form */}
-          <div className="bg-overlay border border-divide rounded-2xl p-7">
+          <div className="bg-background border border-divide rounded-2xl p-7">
             {submitted ? (
               <div className="text-center py-8">
                 <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-                  style={{ background: 'rgba(59,130,246,0.12)' }}>
+                  style={{ background: 'rgba(217,119,6,0.1)' }}>
                   <Send size={24} className="text-accent" />
                 </div>
                 <h3 className="font-display text-xl font-bold text-heading mb-2">
