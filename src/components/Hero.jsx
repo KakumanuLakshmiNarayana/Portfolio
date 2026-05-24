@@ -13,18 +13,18 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse 70% 55% at 50% 0%, rgba(59,130,246,0.14) 0%, transparent 70%)',
+            'radial-gradient(ellipse 70% 55% at 50% 0%, rgba(217,119,6,0.1) 0%, transparent 70%)',
         }}
       />
 
       <div
         className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent, #0a0a0a)' }}
+        style={{ background: 'linear-gradient(to bottom, transparent, #FAFAF8)' }}
       />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center pt-28 pb-20">
-        <div className="hero-anim animate-hero-1 inline-flex items-center gap-2.5 border border-accent/25 rounded-full px-4 py-1.5 text-sm text-accent-light font-medium mb-8"
-          style={{ backgroundColor: 'rgba(59,130,246,0.08)' }}>
+        <div className="hero-anim animate-hero-1 inline-flex items-center gap-2.5 border border-accent/25 rounded-full px-4 py-1.5 text-sm text-accent font-medium mb-8"
+          style={{ backgroundColor: 'rgba(217,119,6,0.08)' }}>
           <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-slow" />
           AI Solutions for Local Businesses
         </div>

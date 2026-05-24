@@ -35,7 +35,7 @@ function ValueCard({ prop, delay }) {
     >
       <div
         className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-        style={{ background: 'rgba(59,130,246,0.12)' }}
+        style={{ background: 'rgba(217,119,6,0.1)' }}
       >
         <Icon size={20} className="text-accent" />
       </div>

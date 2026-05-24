@@ -16,8 +16,8 @@ export default function About() {
               <div
                 className="w-28 h-28 rounded-2xl flex items-center justify-center font-display font-extrabold text-3xl text-white"
                 style={{
-                  background: 'linear-gradient(135deg, #3B82F6 0%, #1d4ed8 100%)',
-                  boxShadow: '0 0 0 1px rgba(59,130,246,0.3), 0 20px 60px rgba(59,130,246,0.2)',
+                  background: 'linear-gradient(135deg, #D97706 0%, #B45309 100%)',
+                  boxShadow: '0 0 0 1px rgba(217,119,6,0.3), 0 20px 60px rgba(217,119,6,0.2)',
                 }}
               >
                 LN

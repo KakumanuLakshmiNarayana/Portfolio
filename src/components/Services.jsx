@@ -33,17 +33,17 @@ function ServiceCard({ service, delay }) {
   return (
     <div
       ref={ref}
-      className="fade-up card-glow group bg-surface border border-divide rounded-2xl p-8 transition-all duration-300 hover:border-accent/30 hover:bg-overlay"
+      className="fade-up card-glow group bg-surface border border-divide rounded-2xl p-8 transition-all duration-300 hover:border-accent/30 hover:shadow-md"
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
-        style={{ backgroundColor: 'rgba(59,130,246,0.12)' }}>
+        style={{ backgroundColor: 'rgba(217,119,6,0.1)' }}>
         <Icon size={22} className="text-accent" />
       </div>
       <h3 className="font-display text-xl font-bold text-heading mb-2">
         {service.title}
       </h3>
-      <p className="text-heading/80 font-semibold text-sm mb-3 leading-snug">
+      <p className="text-heading/70 font-semibold text-sm mb-3 leading-snug">
         {service.tagline}
       </p>
       <p className="text-body text-sm leading-relaxed">
@@ -79,10 +79,10 @@ export default function Services() {
         </div>
 
         <div ref={pricingRef} className="fade-up text-center">
-          <div className="inline-flex flex-wrap items-center justify-center gap-3 bg-surface border border-divide rounded-2xl px-8 py-5">
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 bg-surface border border-divide rounded-2xl px-8 py-5 shadow-sm">
             <span className="text-body">All of this, starting at</span>
             <span className="font-display font-bold text-heading text-2xl">$500</span>
-            <span className="text-divide text-lg">—</span>
+            <span className="text-body/50 text-lg">—</span>
             <span className="text-body">no monthly fees for the website. No BS.</span>
           </div>
         </div>

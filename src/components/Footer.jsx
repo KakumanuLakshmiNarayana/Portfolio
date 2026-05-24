@@ -20,7 +20,7 @@ const NAV_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-background border-t border-divide">
+    <footer className="bg-surface border-t border-divide">
       <div className="max-w-6xl mx-auto px-6 py-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand */}

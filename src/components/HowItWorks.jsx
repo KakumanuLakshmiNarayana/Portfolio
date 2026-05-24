@@ -32,7 +32,7 @@ function Step({ step, delay }) {
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="font-display font-extrabold text-6xl md:text-7xl leading-none mb-4"
-        style={{ color: 'rgba(59,130,246,0.15)' }}>
+        style={{ color: 'rgba(217,119,6,0.18)' }}>
         {step.number}
       </div>
       <h3 className="font-display text-2xl font-bold text-heading mb-3">
@@ -65,7 +65,7 @@ export default function HowItWorks() {
           {/* Connector line desktop */}
           <div
             className="hidden md:block absolute top-8 left-[calc(33%_+_1rem)] right-[calc(33%_+_1rem)] h-px"
-            style={{ background: 'linear-gradient(90deg, transparent, rgba(59,130,246,0.2), transparent)' }}
+            style={{ background: 'linear-gradient(90deg, transparent, rgba(217,119,6,0.25), transparent)' }}
           />
           {STEPS.map((step, i) => (
             <Step key={step.number} step={step} delay={i * 150} />

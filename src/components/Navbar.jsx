@@ -22,15 +22,13 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-background/95 backdrop-blur-md border-b border-divide'
-          : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 bg-white border-b border-divide transition-all duration-300 ${
+        scrolled ? 'shadow-sm' : ''
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3 group" onClick={closeMenu}>
-          <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white font-display font-bold text-xs tracking-wide transition-all duration-200 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+          <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white font-display font-bold text-xs tracking-wide transition-all duration-200 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(217,119,6,0.4)]">
             LN
           </div>
           <span className="font-display font-semibold text-heading text-sm hidden sm:block">
@@ -50,7 +48,7 @@ export default function Navbar() {
           ))}
           <a
             href="#contact"
-            className="bg-accent hover:bg-accent-hover text-white text-sm font-semibold px-5 py-2 rounded-lg transition-all duration-200 hover:shadow-[0_4px_20px_rgba(59,130,246,0.35)]"
+            className="bg-accent hover:bg-accent-hover text-white text-sm font-semibold px-5 py-2 rounded-lg transition-all duration-200 hover:shadow-[0_4px_20px_rgba(217,119,6,0.35)]"
           >
             Let's Talk
           </a>
@@ -68,7 +66,7 @@ export default function Navbar() {
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${
           menuOpen ? 'max-h-72 border-b border-divide' : 'max-h-0'
-        } bg-surface`}
+        } bg-white`}
       >
         <div className="px-6 py-5 flex flex-col gap-5">
           {NAV_LINKS.map((link) => (
