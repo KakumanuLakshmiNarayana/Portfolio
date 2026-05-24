@@ -1,31 +1,28 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Projects from "./components/Projects";
-
-import About from "./components/About";
-import Contact from "./components/Contact";
-
-function HomeSections() {
-  return (
-    <>
-      <Hero />
-      <Projects />
-      <About />
-      <Contact />
-    </>
-  );
-}
+import React from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Services from './components/Services';
+import HowItWorks from './components/HowItWorks';
+import Portfolio from './components/Portfolio';
+import About from './components/About';
+import WhyMe from './components/WhyMe';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <Router>
+    <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<HomeSections />} />
-       
-      </Routes>
-    </Router>
+      <main>
+        <Hero />
+        <Services />
+        <HowItWorks />
+        <Portfolio />
+        <About />
+        <WhyMe />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }

@@ -1,91 +1,95 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import styles from "./Navbar.module.css";
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 
-const SECTIONS = [
-  { id: "home", label: "Home" },
-  { id: "projects", label: "Projects" },
-  { id: "about", label: "About" },
-  { id: "contact", label: "Contact" },
+const NAV_LINKS = [
+  { label: 'Services', href: '#services' },
+  { label: 'Work', href: '#work' },
+  { label: 'About', href: '#about' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
-  const [active, setActive] = useState("home");
-  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Update active nav link as user scrolls (only on / route)
   useEffect(() => {
-    if (location.pathname !== "/") return;
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-    const handleScroll = () => {
-      let current = "home";
-      for (const section of SECTIONS) {
-        const el = document.getElementById(section.id);
-        if (el && window.scrollY + 100 >= el.offsetTop) {
-          current = section.id;
-        }
-      }
-      setActive(current);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-    // Only run on homepage
-  }, [location.pathname]);
-
-  // Smooth scroll for anchor links (only on / route)
-  const handleNavClick = (id) => (e) => {
-    if (location.pathname !== "/") {
-      // If not on home, go to home with anchor
-      e.preventDefault();
-      window.location.href = `/#${id}`;
-      return;
-    }
-    e.preventDefault();
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-      setActive(id);
-    }
-  };
-
-  // Smooth scroll for CTA button
-  const handleCtaClick = (e) => {
-    if (location.pathname !== "/") {
-      e.preventDefault();
-      window.location.href = "/#contact";
-      return;
-    }
-    e.preventDefault();
-    const el = document.getElementById("contact");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-      setActive("contact");
-    }
-  };
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.brand}>
-        <span className={styles.logo}>KLN</span>
-        <span className={styles.portfolio}>Portfolio</span>
-      </div>
-      <ul className={styles.links}>
-        {SECTIONS.map(({ id, label }) => (
-          <li key={id}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-background/95 backdrop-blur-md border-b border-divide'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="#" className="flex items-center gap-3 group" onClick={closeMenu}>
+          <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white font-display font-bold text-xs tracking-wide transition-all duration-200 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+            LN
+          </div>
+          <span className="font-display font-semibold text-heading text-sm hidden sm:block">
+            Narayana
+          </span>
+        </a>
+
+        <div className="hidden md:flex items-center gap-8">
+          {NAV_LINKS.map((link) => (
             <a
-              href={`#${id}`}
-              className={active === id && location.pathname === "/" ? styles.active : ""}
-              onClick={handleNavClick(id)}
+              key={link.href}
+              href={link.href}
+              className="text-body hover:text-heading text-sm font-medium transition-colors duration-200"
             >
-              {label}
+              {link.label}
             </a>
-          </li>
-        ))}
-        
-      </ul>
-      <a href="#contact" className={styles.cta} onClick={handleCtaClick}>
-        Get In Touch
-      </a>
+          ))}
+          <a
+            href="#contact"
+            className="bg-accent hover:bg-accent-hover text-white text-sm font-semibold px-5 py-2 rounded-lg transition-all duration-200 hover:shadow-[0_4px_20px_rgba(59,130,246,0.35)]"
+          >
+            Let's Talk
+          </a>
+        </div>
+
+        <button
+          className="md:hidden text-body hover:text-heading transition-colors p-1"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation"
+        >
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          menuOpen ? 'max-h-72 border-b border-divide' : 'max-h-0'
+        } bg-surface`}
+      >
+        <div className="px-6 py-5 flex flex-col gap-5">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-body hover:text-heading font-medium transition-colors"
+              onClick={closeMenu}
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="btn-primary text-center text-sm"
+            onClick={closeMenu}
+          >
+            Let's Talk
+          </a>
+        </div>
+      </div>
     </nav>
   );
 }
