@@ -1,10 +1,10 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Services from './components/Services';
+import About from './components/About';
 import HowItWorks from './components/HowItWorks';
 import Portfolio from './components/Portfolio';
-import About from './components/About';
+import Services from './components/Services';
 import WhyMe from './components/WhyMe';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -15,10 +15,10 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <Services />
+        <About />
         <HowItWorks />
         <Portfolio />
-        <About />
+        <Services />
         <WhyMe />
         <Contact />
       </main>

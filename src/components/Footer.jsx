@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail } from 'lucide-react';
+import { Mail, Github } from 'lucide-react';
 
 function LinkedinIcon({ size = 14 }) {
   return (
@@ -12,9 +12,10 @@ function LinkedinIcon({ size = 14 }) {
 }
 
 const NAV_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'Work', href: '#work' },
   { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -26,21 +27,19 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex items-center gap-3">
             <div className="w-7 h-7 bg-accent rounded-md flex items-center justify-center text-white font-display font-bold text-xs">
-              LN
+              KLN
             </div>
-            <span className="font-display font-semibold text-heading text-sm">
-              Narayana AI Solutions
-            </span>
+            <div>
+              <span className="font-display font-semibold text-heading text-sm block leading-none">K L Narayana</span>
+              <span className="text-body text-xs">AI Engineer</span>
+            </div>
           </div>
 
           {/* Nav links */}
           <div className="flex items-center gap-6">
             {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-body hover:text-heading text-xs font-medium transition-colors"
-              >
+              <a key={link.href} href={link.href}
+                className="text-body hover:text-heading text-xs font-medium transition-colors">
                 {link.label}
               </a>
             ))}
@@ -48,28 +47,29 @@ export default function Footer() {
 
           {/* Socials */}
           <div className="flex items-center gap-3">
-            <a
-              href="mailto:avinari32@gmail.com"
+            <a href="mailto:avinari32@gmail.com"
               className="w-8 h-8 rounded-lg border border-divide flex items-center justify-center text-body hover:text-accent hover:border-accent/40 transition-all"
-              aria-label="Email"
-            >
+              aria-label="Email">
               <Mail size={14} />
             </a>
-            <a
-              href="https://www.linkedin.com/in/lakshminarayanakakumanu/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <a href="https://www.linkedin.com/in/lakshminarayanakakumanu/"
+              target="_blank" rel="noopener noreferrer"
               className="w-8 h-8 rounded-lg border border-divide flex items-center justify-center text-body hover:text-accent hover:border-accent/40 transition-all"
-              aria-label="LinkedIn"
-            >
+              aria-label="LinkedIn">
               <LinkedinIcon size={14} />
+            </a>
+            <a href="https://github.com/KakumanuLakshmiNarayana"
+              target="_blank" rel="noopener noreferrer"
+              className="w-8 h-8 rounded-lg border border-divide flex items-center justify-center text-body hover:text-accent hover:border-accent/40 transition-all"
+              aria-label="GitHub">
+              <Github size={14} />
             </a>
           </div>
         </div>
 
         <div className="mt-8 pt-6 border-t border-divide/50 text-center">
           <p className="text-body/50 text-xs">
-            © 2026 Narayana AI Solutions · Built to help local businesses grow.
+            © 2026 K L Narayana · AI Engineer · Bellevue, WA
           </p>
         </div>
       </div>
