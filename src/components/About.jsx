@@ -10,6 +10,13 @@ const MILESTONES = [
     current: false,
   },
   {
+    period: 'Jan 2021 – Dec 2022',
+    role: 'Software Engineer',
+    org: 'Janaspandana Software Solutions · India',
+    story: 'Built my engineering foundation shipping real production systems — 25+ REST APIs, secure auth for 5,000+ daily users, and government-grade integrations. Learned that reliability and scale aren\'t optional.',
+    current: false,
+  },
+  {
     period: '2022 – 2024',
     role: "Master's in Computer Information Technology",
     org: 'Purdue University · Indiana, USA',
@@ -20,7 +27,7 @@ const MILESTONES = [
     period: 'July 2024 – Present',
     role: 'AI Engineer',
     org: 'Axitemus · USA',
-    story: 'Now shipping production AI — LLM pipelines, workflow automations, full-stack applications. Every project connects intelligent systems to measurable business value. This is the current chapter.',
+    story: 'Now shipping production AI — LLM pipelines, RAG systems, workflow automations, full-stack applications. Every project connects intelligent systems to measurable business value. This is the current chapter.',
     current: true,
   },
 ];
