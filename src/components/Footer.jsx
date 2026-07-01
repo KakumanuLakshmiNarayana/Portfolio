@@ -9,16 +9,6 @@ function GithubIcon({ size = 14 }) {
   );
 }
 
-function LinkedinIcon({ size = 14 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect x="2" y="9" width="4" height="12" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  );
-}
-
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
@@ -59,12 +49,6 @@ export default function Footer() {
               className="w-8 h-8 rounded-lg border border-divide flex items-center justify-center text-body hover:text-accent hover:border-accent/40 transition-all"
               aria-label="Email">
               <Mail size={14} />
-            </a>
-            <a href="https://www.linkedin.com/in/lakshminarayanakakumanu/"
-              target="_blank" rel="noopener noreferrer"
-              className="w-8 h-8 rounded-lg border border-divide flex items-center justify-center text-body hover:text-accent hover:border-accent/40 transition-all"
-              aria-label="LinkedIn">
-              <LinkedinIcon size={14} />
             </a>
             <a href="https://github.com/KakumanuLakshmiNarayana"
               target="_blank" rel="noopener noreferrer"
