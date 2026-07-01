@@ -1,83 +1,73 @@
 import React from 'react';
-import { Check, Phone, Eye, BookOpen } from 'lucide-react';
+import { GraduationCap, Award } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-
-const VALUE_PROPS = [
-  {
-    icon: BookOpen,
-    title: 'I explain everything in plain English',
-    description:
-      "No jargon, no tech-speak. You'll always know exactly what was built, why it works, and how to use it.",
-  },
-  {
-    icon: Eye,
-    title: 'You see it before you pay',
-    description:
-      'I show you a complete working demo before you spend a single dollar. You only pay when you love it.',
-  },
-  {
-    icon: Phone,
-    title: 'I actually pick up my phone',
-    description:
-      'No ticket system, no 48-hour wait. You get my number. Real support from the person who built your system.',
-  },
-];
-
-function ValueCard({ prop, delay }) {
-  const ref = useScrollAnimation();
-  const Icon = prop.icon;
-
-  return (
-    <div
-      ref={ref}
-      className="fade-up flex gap-5 items-start"
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div
-        className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-        style={{ background: 'rgba(217,119,6,0.1)' }}
-      >
-        <Icon size={20} className="text-accent" />
-      </div>
-      <div>
-        <h3 className="font-display font-bold text-heading text-lg mb-2">{prop.title}</h3>
-        <p className="text-body text-sm leading-relaxed">{prop.description}</p>
-      </div>
-    </div>
-  );
-}
 
 export default function WhyMe() {
   const headerRef = useScrollAnimation();
+  const eduRef = useScrollAnimation();
+  const certRef = useScrollAnimation();
 
   return (
-    <section id="why-me" className="bg-background py-24 md:py-32">
+    <section id="education" className="bg-surface py-24 md:py-32">
       <div className="max-w-4xl mx-auto px-6">
-        <div ref={headerRef} className="fade-up text-center mb-16">
-          <span className="section-label">Why Me</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-heading mt-3 mb-4">
-            A Lot of People Build Websites.
+        <div ref={headerRef} className="fade-up mb-16">
+          <span className="section-label">Education & Certifications</span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-heading mt-3 mb-4 leading-tight">
+            The Foundation
             <br />
-            <span className="text-accent">Here's What Makes This Different.</span>
+            <span className="text-accent">Behind the Work</span>
           </h2>
+          <p className="text-body text-lg leading-relaxed max-w-xl">
+            Academic roots in both business and technology — plus an AWS ML credential that validates the engineering side.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {VALUE_PROPS.map((prop, i) => (
-            <ValueCard key={prop.title} prop={prop} delay={i * 120} />
-          ))}
+        {/* Degrees */}
+        <div ref={eduRef} className="fade-up space-y-4 mb-6">
+          <div className="bg-background border border-divide rounded-2xl p-6 flex gap-5 items-start">
+            <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+              style={{ background: 'rgba(217,119,6,0.1)' }}>
+              <GraduationCap size={20} className="text-accent" />
+            </div>
+            <div>
+              <h3 className="font-display font-bold text-heading text-lg leading-snug mb-0.5">
+                Master's in Computer Information Technology
+              </h3>
+              <p className="text-body text-sm">Purdue University · Indiana, USA</p>
+              <p className="text-accent text-xs font-semibold mt-1.5">Graduated May 2024</p>
+            </div>
+          </div>
+
+          <div className="bg-background border border-divide rounded-2xl p-6 flex gap-5 items-start">
+            <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+              style={{ background: 'rgba(217,119,6,0.1)' }}>
+              <GraduationCap size={20} className="text-accent" />
+            </div>
+            <div>
+              <h3 className="font-display font-bold text-heading text-lg leading-snug mb-0.5">
+                Bachelor of Commerce
+              </h3>
+              <p className="text-body text-sm">Acharya Nagarjuna University · India</p>
+              <p className="text-accent text-xs font-semibold mt-1.5">Graduated March 2021</p>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-16 pt-12 border-t border-divide text-center">
-          <p className="text-body text-lg mb-2">
-            Ready to see what AI can do for your business?
-          </p>
-          <p className="text-heading font-semibold text-xl mb-8">
-            The first call is free. No pitch. Just a conversation.
-          </p>
-          <a href="#contact" className="btn-primary">
-            Book a Free 15-Min Call
-          </a>
+        {/* Certification */}
+        <div ref={certRef} className="fade-up" style={{ transitionDelay: '120ms' }}>
+          <div className="rounded-2xl p-6 flex gap-5 items-start border"
+            style={{ background: 'rgba(217,119,6,0.05)', borderColor: 'rgba(217,119,6,0.22)' }}>
+            <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-accent">
+              <Award size={20} className="text-white" />
+            </div>
+            <div>
+              <h3 className="font-display font-bold text-heading text-lg leading-snug mb-0.5">
+                AWS Certified Machine Learning – Specialty
+              </h3>
+              <p className="text-body text-sm">Amazon Web Services · MLS-C01</p>
+              <p className="text-accent text-xs font-semibold mt-1.5">Credential Verified</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

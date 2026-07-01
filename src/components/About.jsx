@@ -1,85 +1,93 @@
 import React from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
+const MILESTONES = [
+  {
+    period: '2021',
+    role: 'Bachelor of Commerce',
+    org: 'Acharya Nagarjuna University · India',
+    story: "Started with commerce — learned how businesses think, where value flows, and why decisions are made. That foundation never left me. It's why I build AI for outcomes, not just for code.",
+    current: false,
+  },
+  {
+    period: '2022 – 2024',
+    role: "Master's in Computer Information Technology",
+    org: 'Purdue University · Indiana, USA',
+    story: 'Crossed continents and disciplines. Immersed myself in systems, software, and eventually AI. Built real projects, asked hard questions, graduated May 2024 — and immediately knew this was the work I was meant to do.',
+    current: false,
+  },
+  {
+    period: 'July 2024 – Present',
+    role: 'AI Engineer',
+    org: 'Axitemus · USA',
+    story: 'Now shipping production AI — LLM pipelines, workflow automations, full-stack applications. Every project connects intelligent systems to measurable business value. This is the current chapter.',
+    current: true,
+  },
+];
+
+function TimelineItem({ milestone, delay, isLast }) {
+  const ref = useScrollAnimation();
+
+  return (
+    <div ref={ref} className="fade-up flex gap-7 md:gap-10" style={{ transitionDelay: `${delay}ms` }}>
+      {/* Spine */}
+      <div className="flex flex-col items-center flex-shrink-0">
+        <div className={`w-4 h-4 rounded-full border-2 z-10 mt-1 transition-all ${
+          milestone.current
+            ? 'bg-accent border-accent shadow-[0_0_12px_rgba(217,119,6,0.4)]'
+            : 'bg-white border-divide'
+        }`} />
+        {!isLast && (
+          <div className="w-px flex-1 mt-2" style={{ background: 'linear-gradient(to bottom, rgba(217,119,6,0.25), rgba(217,119,6,0.05))', minHeight: '88px' }} />
+        )}
+      </div>
+
+      {/* Content */}
+      <div className={`pb-14 ${isLast ? 'pb-0' : ''}`}>
+        <p className="font-display font-bold text-accent text-sm mb-1">{milestone.period}</p>
+        <h3 className="font-display text-xl md:text-2xl font-bold text-heading mb-0.5">{milestone.role}</h3>
+        <p className="text-body text-sm mb-3 flex items-center gap-1.5">
+          {milestone.org}
+          {milestone.current && (
+            <span className="inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full bg-accent text-white ml-1">
+              <span className="w-1 h-1 rounded-full bg-white animate-pulse-slow" />
+              Now
+            </span>
+          )}
+        </p>
+        <p className="text-body leading-relaxed text-sm md:text-base max-w-lg">{milestone.story}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function About() {
-  const leftRef = useScrollAnimation();
-  const rightRef = useScrollAnimation();
+  const headerRef = useScrollAnimation();
 
   return (
     <section id="about" className="bg-surface py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          {/* Avatar side */}
-          <div ref={leftRef} className="fade-up flex flex-col items-center md:items-start gap-6">
-            {/* Avatar */}
-            <div className="relative">
-              <div
-                className="w-28 h-28 rounded-2xl flex items-center justify-center font-display font-extrabold text-3xl text-white"
-                style={{
-                  background: 'linear-gradient(135deg, #D97706 0%, #B45309 100%)',
-                  boxShadow: '0 0 0 1px rgba(217,119,6,0.3), 0 20px 60px rgba(217,119,6,0.2)',
-                }}
-              >
-                LN
-              </div>
-              {/* Replace with real photo — swap the div above with:
-                  <img src="/your-photo.jpg" alt="Narayana" className="w-28 h-28 rounded-2xl object-cover" /> */}
-              <div
-                className="absolute -bottom-2 -right-2 w-6 h-6 rounded-full border-2 border-surface"
-                style={{ background: '#22c55e' }}
-              />
-            </div>
+      <div className="max-w-4xl mx-auto px-6">
+        <div ref={headerRef} className="fade-up mb-16">
+          <span className="section-label">My Journey</span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-heading mt-3 mb-5 leading-tight">
+            From Commerce Student
+            <br />
+            <span className="text-accent">to AI Engineer</span>
+          </h2>
+          <p className="text-body text-lg leading-relaxed max-w-xl">
+            My path wasn't linear — it was intentional. I crossed continents, switched disciplines, and kept building until the work matched the vision.
+          </p>
+        </div>
 
-            <div>
-              <h3 className="font-display text-xl font-bold text-heading mb-1">
-                Lakshminarayana Kakumanu
-              </h3>
-              <p className="text-body text-sm">AI Solutions Architect · Indiana, USA</p>
-            </div>
-
-            {/* Quick stats */}
-            <div className="flex gap-8">
-              {[
-                { value: '5–7', label: 'Day turnaround' },
-                { value: '$500', label: 'Starting price' },
-                { value: '100%', label: 'See before you pay' },
-              ].map(({ value, label }) => (
-                <div key={label}>
-                  <div className="font-display font-bold text-xl text-heading">{value}</div>
-                  <div className="text-body text-xs mt-0.5">{label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Bio side */}
-          <div ref={rightRef} className="fade-up" style={{ transitionDelay: '150ms' }}>
-            <span className="section-label">About</span>
-            <h2 className="font-display text-4xl font-bold text-heading mt-3 mb-6 leading-tight">
-              I Build for Business Owners,
-              <br />
-              <span className="text-accent">Not for Tech People</span>
-            </h2>
-            <div className="space-y-4 text-body leading-relaxed">
-              <p>
-                I'm Narayana — an AI solutions architect based in Indiana. I combine a business background
-                with AI tools to build things that actually help local businesses grow.
-              </p>
-              <p>
-                I've spent years understanding how small businesses work, and I use that knowledge to build
-                solutions that fit — not generic templates that collect dust.
-              </p>
-              <p>
-                When I'm not building, I'm probably figuring out a new way to automate something that
-                shouldn't take a human 3 hours.
-              </p>
-            </div>
-            <div className="mt-8">
-              <a href="#contact" className="btn-primary">
-                Let's Work Together
-              </a>
-            </div>
-          </div>
+        <div>
+          {MILESTONES.map((m, i) => (
+            <TimelineItem
+              key={m.role}
+              milestone={m}
+              delay={i * 200}
+              isLast={i === MILESTONES.length - 1}
+            />
+          ))}
         </div>
       </div>
     </section>

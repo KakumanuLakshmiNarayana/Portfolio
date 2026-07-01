@@ -1,90 +1,82 @@
 import React from 'react';
-import { MessageSquare, Globe, Zap } from 'lucide-react';
+import { Cpu, Code2, Server, Database, Zap } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const SERVICES = [
+const SKILLS = [
   {
-    icon: MessageSquare,
-    title: 'AI Chatbots',
-    tagline: 'Your 24/7 customer service rep.',
-    description:
-      'Answers questions, takes bookings, and never calls in sick. Works on your website, Instagram, and Facebook automatically.',
+    icon: Cpu,
+    category: 'AI & LLM',
+    items: ['OpenAI API', 'GPT-4o', 'Prompt Engineering', 'LangChain', 'Agentic AI', 'Embeddings', 'Semantic Search', 'AI Workflow Automation'],
   },
   {
-    icon: Globe,
-    title: 'Modern Websites',
-    tagline: 'Make your business look like a million bucks.',
-    description:
-      'Fast, mobile-friendly, and built to convert visitors into customers. Custom-designed — not templates that everyone else has.',
+    icon: Code2,
+    category: 'Frontend',
+    items: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML5 / CSS3'],
+  },
+  {
+    icon: Server,
+    category: 'Backend',
+    items: ['Python', 'Node.js', 'FastAPI', 'Express.js', 'REST APIs', 'SQL'],
+  },
+  {
+    icon: Database,
+    category: 'Databases',
+    items: ['PostgreSQL', 'Supabase', 'SQLite'],
   },
   {
     icon: Zap,
-    title: 'Smart Automations',
-    tagline: 'Handle the boring stuff automatically.',
-    description:
-      'Auto-send review requests, follow up with leads, send promos. Set it up once and watch it run while you focus on your business.',
+    category: 'Automation & DevOps',
+    items: ['n8n', 'GitHub Actions', 'Docker', 'CI/CD', 'FFmpeg'],
   },
 ];
 
-function ServiceCard({ service, delay }) {
+function SkillCard({ skill, delay }) {
   const ref = useScrollAnimation();
-  const Icon = service.icon;
+  const Icon = skill.icon;
 
   return (
-    <div
-      ref={ref}
-      className="fade-up card-glow group bg-surface border border-divide rounded-2xl p-8 transition-all duration-300 hover:border-accent/30 hover:shadow-md"
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
-        style={{ backgroundColor: 'rgba(217,119,6,0.1)' }}>
-        <Icon size={22} className="text-accent" />
+    <div ref={ref} className="fade-up" style={{ transitionDelay: `${delay}ms` }}>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+          style={{ background: 'rgba(217,119,6,0.1)' }}>
+          <Icon size={17} className="text-accent" />
+        </div>
+        <h3 className="font-display font-bold text-heading text-base">{skill.category}</h3>
       </div>
-      <h3 className="font-display text-xl font-bold text-heading mb-2">
-        {service.title}
-      </h3>
-      <p className="text-heading/70 font-semibold text-sm mb-3 leading-snug">
-        {service.tagline}
-      </p>
-      <p className="text-body text-sm leading-relaxed">
-        {service.description}
-      </p>
+      <div className="flex flex-wrap gap-2">
+        {skill.items.map(item => (
+          <span key={item}
+            className="text-xs font-medium px-2.5 py-1.5 rounded-lg bg-surface border border-divide text-body hover:border-accent/30 hover:text-heading transition-colors cursor-default">
+            {item}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
 
 export default function Services() {
   const headerRef = useScrollAnimation();
-  const pricingRef = useScrollAnimation();
 
   return (
-    <section id="services" className="bg-background py-24 md:py-32">
+    <section id="skills" className="bg-background py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <div ref={headerRef} className="fade-up text-center mb-16">
-          <span className="section-label">What I Build</span>
+          <span className="section-label">Technical Skills</span>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-heading mt-3 mb-4 leading-tight">
-            Everything You Need.
+            The Stack Behind
             <br />
-            <span className="text-accent">Nothing You Don't.</span>
+            <span className="text-accent">Every Project</span>
           </h2>
           <p className="text-body text-lg max-w-xl mx-auto">
-            Three focused services that solve the real problems every local business faces.
+            From LLM prompt design to database schema — I work across the full depth of modern AI development.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {SERVICES.map((service, i) => (
-            <ServiceCard key={service.title} service={service} delay={i * 120} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+          {SKILLS.map((skill, i) => (
+            <SkillCard key={skill.category} skill={skill} delay={i * 100} />
           ))}
-        </div>
-
-        <div ref={pricingRef} className="fade-up text-center">
-          <div className="inline-flex flex-wrap items-center justify-center gap-3 bg-surface border border-divide rounded-2xl px-8 py-5 shadow-sm">
-            <span className="text-body">All of this, starting at</span>
-            <span className="font-display font-bold text-heading text-2xl">$500</span>
-            <span className="text-body/50 text-lg">—</span>
-            <span className="text-body">no monthly fees for the website. No BS.</span>
-          </div>
         </div>
       </div>
     </section>
